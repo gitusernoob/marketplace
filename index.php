@@ -64,6 +64,16 @@ if ($resultDomanda->num_rows > 0) {
     }
 }
 
+// Ordina l'array delle offerte per prezzo decrescente
+usort($offertaData, function($a, $b) {
+    return $b['prezzoofferta'] - $a['prezzoofferta'];
+});
+
+// Ordina l'array delle domande per prezzo crescente
+usort($domandaData, function($a, $b) {
+    return $a['prezzodomanda'] - $b['prezzodomanda'];
+});
+
 // Controlla se ci sono corrispondenze tra domanda e offerta
 foreach ($domandaData as $dKey => $domanda) {
     foreach ($offertaData as $oKey => $offerta) {
